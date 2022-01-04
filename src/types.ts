@@ -4,3 +4,5 @@ type Book = {
   rating: number;
   review: string;
 };
+
+type Books = Pick<Book, "uuid" | "name">[];

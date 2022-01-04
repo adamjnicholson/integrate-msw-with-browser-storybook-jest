@@ -9,7 +9,7 @@ async function getBooks() {
 }
 
 export default function Index() {
-  const { data, status } = useQuery<Book[]>("books", getBooks);
+  const { data, status } = useQuery<Books>("books", getBooks);
 
   return (
     <>
@@ -21,12 +21,13 @@ export default function Index() {
         <ul className="space-y-2">
           {data?.map((book) => {
             return (
-              <li>
+              <li key={book.uuid}>
                 <Link
-                  className="block p-2 hover:bg-gray-300 rounded-md transition-colors"
-                  to={`students/${book.uuid}`}
+                  className="flex justify-between p-2 rounded-md transition-colors  hover:bg-gray-300 hover:font-bold"
+                  to={`book/${book.uuid}`}
                 >
                   {book.name}
+                  <span>{`->`}</span>
                 </Link>
               </li>
             );

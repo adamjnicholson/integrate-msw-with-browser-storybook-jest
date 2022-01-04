@@ -15,4 +15,20 @@ export const handlers = [
       )
     );
   }),
+  rest.get("/book/:uuid", (req, res, ctx) => {
+    const { uuid } = req.params;
+    const book = db.book.findFirst({
+      where: {
+        uuid: {
+          equals: Array.isArray(uuid) ? uuid[0] : uuid,
+        },
+      },
+    });
+
+    if (book) {
+      return res(ctx.status(201), ctx.json(book));
+    }
+
+    return res(ctx.status(404));
+  }),
 ];
