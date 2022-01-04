@@ -18,6 +18,8 @@ type Dictionary = {
   book: BuildModelDefinition<Book, "uuid">;
 };
 
+faker.seed(123);
+
 export const db = factory<Dictionary>({
   book: {
     uuid: primaryKey(() => faker.datatype.uuid()),
