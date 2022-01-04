@@ -1,6 +1,6 @@
-type Student = {
+type Book = {
   uuid: string;
   name: string;
-  grade: "A" | "B" | "C" | "D" | "E" | "F";
-  notes: string;
+  rating: number;
+  review: string;
 };
