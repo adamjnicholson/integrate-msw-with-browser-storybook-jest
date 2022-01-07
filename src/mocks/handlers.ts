@@ -31,4 +31,15 @@ export const handlers = [
 
     return res(ctx.status(404));
   }),
+  rest.post<string>("/book/new", (req, res, ctx) => {
+    const { name, rating, review } = JSON.parse(req.body);
+
+    const book = db.book.create({
+      name,
+      review,
+      rating,
+    });
+
+    return res(ctx.status(200), ctx.json(book));
+  }),
 ];

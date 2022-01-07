@@ -2,6 +2,7 @@ import { factory, primaryKey } from "@mswjs/data";
 import { ModelValueType, PrimaryKeyType } from "@mswjs/data/lib/glossary";
 import { PrimaryKey } from "@mswjs/data/lib/primaryKey";
 import faker from "faker";
+import { Book } from "../types";
 
 type BuildModelDefinition<
   Definition extends Record<string, ModelValueType>,

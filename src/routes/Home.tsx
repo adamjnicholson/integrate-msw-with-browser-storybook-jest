@@ -1,6 +1,8 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
+import { AddNewBookButton, BookDetailsLinkList } from "../modules/book";
+import { Heading } from "../modules/ui";
+import { Books } from "../types";
 
 async function getBooks() {
   return fetch("/books")
@@ -13,27 +15,12 @@ export default function Index() {
 
   return (
     <>
-      <h2 className="font-bold text-2xl text-gray-900 pb-4">Books</h2>
+      <Heading as="h2">Books</Heading>
 
       {status === "error" ? "There was an error" : null}
       {status === "loading" ? "loading" : null}
-      {status === "success" ? (
-        <ul className="space-y-2">
-          {data?.map((book) => {
-            return (
-              <li key={book.uuid}>
-                <Link
-                  className="flex justify-between p-2 rounded-md transition-colors  hover:bg-gray-300 hover:font-bold"
-                  to={`book/${book.uuid}`}
-                >
-                  {book.name}
-                  <span>{`->`}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      ) : null}
+      {status === "success" ? <BookDetailsLinkList books={data ?? []} /> : null}
+      <AddNewBookButton to="/book/create">Add new book</AddNewBookButton>
     </>
   );
 }
