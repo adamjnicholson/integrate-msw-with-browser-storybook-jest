@@ -2,7 +2,7 @@ import React from "react"
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-export function Input({ className, ...props }: InputProps) {
+export function Input({ className = "", ...props }: InputProps) {
     return (
         <input {...props} className={`block w-full px-4 py-2 rounded-md ${className}`} />
     )
@@ -10,7 +10,7 @@ export function Input({ className, ...props }: InputProps) {
 
 type TextareaProps = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>
 
-export function Textarea({ className, ...props }: TextareaProps) {
+export function Textarea({ className = "", ...props }: TextareaProps) {
     return (
         <textarea {...props} className={`block w-full px-4 py-2 rounded-md ${className}`} />
     )
@@ -18,7 +18,7 @@ export function Textarea({ className, ...props }: TextareaProps) {
 
 type LabelProps = React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>
 
-export function Label({ className, ...props }: LabelProps) {
+export function Label({ className = "", ...props }: LabelProps) {
     return (
         <label {...props} className={`block font-semibold ${className}`} />
     )
@@ -41,7 +41,7 @@ export function InputGroup({ label, children }: InputGroupProps) {
 }
 
 type FormProps = React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>
-export function Form({ className, ...props }: FormProps) {
+export function Form({ className = "", ...props }: FormProps) {
     return (
         <form {...props} className={`space-y-4 ${className}`} />
     )

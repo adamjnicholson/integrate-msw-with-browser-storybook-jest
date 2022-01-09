@@ -6,7 +6,7 @@ import { Heading } from "../../modules/ui";
 
 type BookDetailsLinkProps = LinkProps & React.RefAttributes<HTMLAnchorElement>;
 
-function BookDetailsLink({ className, ...props }: BookDetailsLinkProps) {
+function BookDetailsLink({ className = "", ...props }: BookDetailsLinkProps) {
   return (
     <Link
       {...props}

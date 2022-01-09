@@ -8,13 +8,13 @@ type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 >;
-export function Button({ className, ...props }: ButtonProps) {
+export function Button({ className = "", ...props }: ButtonProps) {
   return <button {...props} className={`${BUTTON_STYLES} ${className}`} />;
 }
 
 export type LinkButtonProps = LinkProps &
   React.RefAttributes<HTMLAnchorElement>;
 
-export function LinkButton({ className, ...props }: LinkButtonProps) {
+export function LinkButton({ className = "", ...props }: LinkButtonProps) {
   return <Link {...props} className={`${BUTTON_STYLES} ${className}`} />;
 }

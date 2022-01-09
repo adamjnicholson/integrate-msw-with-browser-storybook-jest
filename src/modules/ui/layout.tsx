@@ -5,7 +5,7 @@ type HTMLElementProps = React.DetailedHTMLProps<
   HTMLElement
 >;
 
-export function Section({ className, ...props }: HTMLElementProps) {
+export function Section({ className = "", ...props }: HTMLElementProps) {
   return (
     <section
       {...props}
@@ -14,7 +14,7 @@ export function Section({ className, ...props }: HTMLElementProps) {
   );
 }
 
-export function Main({ className, ...props }: HTMLElementProps) {
+export function Main({ className = "", ...props }: HTMLElementProps) {
   return (
     <main
       {...props}
