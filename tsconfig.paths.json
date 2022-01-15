@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@jest/*": ["./jest/*"]
+    }
+  }
+}

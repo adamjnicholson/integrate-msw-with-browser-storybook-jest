@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Route, Routes } from "react-router-dom";
+
 import {
   render,
   screen,
@@ -7,8 +9,8 @@ import {
   userEvent,
 } from "../../jest/test-utils";
 import { db } from "../mocks/db";
-import BookDetails from "./BookDetails";
 
+import BookDetails from "./BookDetails";
 import { WithBooks } from "./Home.stories";
 
 it("displays links to all books", async () => {

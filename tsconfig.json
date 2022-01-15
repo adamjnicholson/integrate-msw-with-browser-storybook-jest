@@ -1,12 +1,23 @@
 {
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules/**/*"],
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
-    "jsx": "react",
-    "target": "es2016",
-    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@mocks/*": ["./src/mocks/*"],
+      "@jest/*": ["./jest/*"]
+    },
+    "resolveJsonModule": true,
     "strict": true,
-    "skipLibCheck": true,
-    "noEmit": true
+    "target": "ES2019"
   }
 }

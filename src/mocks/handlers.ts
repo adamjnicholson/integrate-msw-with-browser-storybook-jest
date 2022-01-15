@@ -1,4 +1,5 @@
 import { rest } from "msw";
+
 import { db } from "./db";
 
 export const getBooks = rest.get("/books", (req, res, ctx) => {

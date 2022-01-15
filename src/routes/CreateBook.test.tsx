@@ -1,16 +1,17 @@
 import React from "react";
+
+import { Route, Routes } from "react-router-dom";
+
 import {
   render,
   screen,
   userEvent,
   waitForElementToBeRemoved,
 } from "../../jest/test-utils";
-import faker from "faker";
-import { db, getModelInstance } from "../mocks/db";
+import { getModelInstance } from "../mocks/db";
 
-import { CreateBookPage } from "./CreateBook.stories";
-import { Route, Routes } from "react-router-dom";
 import BookDetails from "./BookDetails";
+import { CreateBookPage } from "./CreateBook.stories";
 
 it("creates a new book", async () => {
   render(

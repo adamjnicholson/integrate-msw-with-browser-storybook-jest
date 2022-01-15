@@ -1,7 +1,8 @@
 import React from "react";
+
+import { render, RenderOptions } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
-import { render, RenderOptions } from "@testing-library/react";
 
 const mockedQueryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +36,7 @@ type NoRouteProps = {
 type AllTheProvidersProps = AllTheProvidersBaseProps &
   (RoutePathProps | MaybeRoutePathProps | NoRouteProps);
 
-const AllTheProviders = ({ route, children }: AllTheProvidersProps) => {
+function AllTheProviders({ route, children }: AllTheProvidersProps) {
   const routeToUse = route ?? "/";
 
   return (
@@ -43,7 +44,7 @@ const AllTheProviders = ({ route, children }: AllTheProvidersProps) => {
       <MemoryRouter initialEntries={[routeToUse]}>{children}</MemoryRouter>
     </QueryClientProvider>
   );
-};
+}
 
 const customRender = (
   ui: JSX.Element,
@@ -57,7 +58,9 @@ const customRender = (
 ) =>
   render(ui, {
     wrapper: () => (
-      <AllTheProviders route={route} routePath={routePath} children={ui} />
+      <AllTheProviders route={route} routePath={routePath}>
+        {ui}
+      </AllTheProviders>
     ),
     ...options,
   });

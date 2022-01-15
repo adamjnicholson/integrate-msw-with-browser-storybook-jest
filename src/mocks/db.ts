@@ -7,6 +7,7 @@ import {
 } from "@mswjs/data/lib/glossary";
 import { PrimaryKey } from "@mswjs/data/lib/primaryKey";
 import faker from "faker";
+
 import { Book } from "../types";
 
 type BuildModelDefinition<
@@ -40,7 +41,7 @@ export const db = factory<Dictionary>({
 });
 
 export function seedDb() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i += 1) {
     db.book.create();
   }
 }

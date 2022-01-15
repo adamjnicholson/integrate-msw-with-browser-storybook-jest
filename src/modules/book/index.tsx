@@ -1,7 +1,10 @@
-import React, { FormEvent } from "react";
+import React from "react";
+
 import { Link, LinkProps } from "react-router-dom";
+
 import { Books, Book } from "../../types";
 import {
+  Heading,
   Button,
   LinkButton,
   LinkButtonProps,
@@ -10,7 +13,6 @@ import {
   Textarea,
   InputGroup,
 } from "../ui";
-import { Heading } from "../../modules/ui";
 
 type BookDetailsLinkProps = LinkProps & React.RefAttributes<HTMLAnchorElement>;
 
@@ -30,16 +32,14 @@ type BookDetailsLinkListProps = {
 export function BookDetailsLinkList({ books }: BookDetailsLinkListProps) {
   return (
     <ul className="space-y-4">
-      {books?.map((book) => {
-        return (
-          <li key={book.uuid}>
-            <BookDetailsLink to={`book/${book.uuid}`}>
-              {book.name}
-              <span>{`->`}</span>
-            </BookDetailsLink>
-          </li>
-        );
-      })}
+      {books?.map((book) => (
+        <li key={book.uuid}>
+          <BookDetailsLink to={`book/${book.uuid}`}>
+            {book.name}
+            <span>{`->`}</span>
+          </BookDetailsLink>
+        </li>
+      ))}
     </ul>
   );
 }
@@ -58,7 +58,7 @@ type BookDetailsInfoProps = {
   book: Book | undefined;
 };
 
-//@TODO think of a better name
+// @TODO think of a better name
 export function BookDetailsInfo({ book }: BookDetailsInfoProps) {
   if (!book) {
     return null;

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Route, Routes } from "react-router-dom";
+
 import {
   render,
   screen,
@@ -7,9 +9,9 @@ import {
   userEvent,
 } from "../../jest/test-utils";
 import { db } from "../mocks/db";
-import Home from "./Home";
 
 import { BookDetailsPage } from "./BookDetails.stories";
+import Home from "./Home";
 
 it("displays links to all books", async () => {
   const book = db.book.findFirst({ where: {} });
@@ -34,7 +36,7 @@ it("displays links to all books", async () => {
 
   userEvent.click(
     screen.getByRole("link", {
-      name: /<\- back/i,
+      name: /<- back/i,
     })
   );
 

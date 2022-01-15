@@ -1,0 +1,121 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "react-app",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".tsx", ".js"]
+      }
+    ],
+    "import/extensions": "off",
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "function-declaration" }
+    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/button-has-type": "off",
+    "no-console": "error",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          ".storybook/**",
+          "**/*.stories.tsx",
+          "./src/mocks/**",
+          "./jest/**",
+          "./craco.config.js"
+        ]
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc"
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "object",
+          "index",
+          "type"
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "~/**",
+            "group": "internal"
+          }
+        ]
+      }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": ["Label"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["Input"],
+        "depth": 1
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.stories.tsx"],
+      "rules": {
+        "react/function-component-definition": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["./src"]
+      }
+    }
+  }
+}

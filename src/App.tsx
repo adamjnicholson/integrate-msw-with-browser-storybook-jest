@@ -1,9 +1,11 @@
 import React from "react";
+
 import { Routes, Route, Link, Outlet } from "react-router-dom";
-import Home from "./routes/Home";
+
+import { Heading, Section, Main } from "./modules/ui";
 import BookDetails from "./routes/BookDetails";
 import CreateBook from "./routes/CreateBook";
-import { Heading, Section, Main } from "./modules/ui";
+import Home from "./routes/Home";
 
 function AppLayout() {
   return (
@@ -15,7 +17,7 @@ function AppLayout() {
         <Outlet />
       </Section>
     </Main>
-  )
+  );
 }
 
 export default function App() {

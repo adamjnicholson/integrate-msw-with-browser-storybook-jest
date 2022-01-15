@@ -1,6 +1,8 @@
 import React from "react";
+
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
+
 import { BookDetailsInfo } from "../modules/book";
 import { Book } from "../types";
 
@@ -23,6 +25,4 @@ export default function BookDetails() {
       {status === "success" ? <BookDetailsInfo book={data} /> : null}
     </>
   );
-
-
 }
