@@ -1,7 +1,15 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { Books, Book } from "../../types";
-import { Button, LinkButton, LinkButtonProps, Form, Input, Textarea, InputGroup } from "../ui";
+import {
+  Button,
+  LinkButton,
+  LinkButtonProps,
+  Form,
+  Input,
+  Textarea,
+  InputGroup,
+} from "../ui";
 import { Heading } from "../../modules/ui";
 
 type BookDetailsLinkProps = LinkProps & React.RefAttributes<HTMLAnchorElement>;
@@ -16,8 +24,8 @@ function BookDetailsLink({ className = "", ...props }: BookDetailsLinkProps) {
 }
 
 type BookDetailsLinkListProps = {
-  books: Books
-}
+  books: Books;
+};
 
 export function BookDetailsLinkList({ books }: BookDetailsLinkListProps) {
   return (
@@ -33,25 +41,27 @@ export function BookDetailsLinkList({ books }: BookDetailsLinkListProps) {
         );
       })}
     </ul>
-  )
+  );
 }
 
 export function AddNewBookButton(props: LinkButtonProps) {
   return (
     <div className="pt-8">
-      <LinkButton {...props} to="/book/create"  >Add new book</LinkButton>
+      <LinkButton {...props} to="/book/create">
+        Add new book
+      </LinkButton>
     </div>
   );
 }
 
 type BookDetailsInfoProps = {
-  book: Book | undefined
-}
+  book: Book | undefined;
+};
 
 //@TODO think of a better name
 export function BookDetailsInfo({ book }: BookDetailsInfoProps) {
   if (!book) {
-    return null
+    return null;
   }
 
   return (
@@ -65,12 +75,12 @@ export function BookDetailsInfo({ book }: BookDetailsInfoProps) {
         {`<-`} Back
       </Link>
     </>
-  )
+  );
 }
 
 type CreateBookFormProps = {
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void
-}
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+};
 
 export function CreateBookForm({ onSubmit }: CreateBookFormProps) {
   return (
@@ -86,5 +96,5 @@ export function CreateBookForm({ onSubmit }: CreateBookFormProps) {
       </InputGroup>
       <Button type="submit">Create new book</Button>
     </Form>
-  )
+  );
 }

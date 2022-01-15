@@ -10,6 +10,14 @@ type CreateBookArgs = {
   review: string;
 };
 
+type EventTarget = {
+  elements: {
+    bookName: { value: string };
+    rating: { value: number };
+    review: { value: string };
+  };
+};
+
 async function createBook(book: CreateBookArgs) {
   return fetch("/book/new", {
     method: "POST",
@@ -24,11 +32,12 @@ export default function CreateBook() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // get the values for each input
-    const nameInput = e.currentTarget.bookName;
-    const ratingInput = e.currentTarget.rating;
-    const reviewInput = e.currentTarget.review;
+    const target = e.target as typeof e.target & EventTarget;
 
+    // get the values for each input
+    const nameInput = target.elements.bookName;
+    const ratingInput = target.elements.rating;
+    const reviewInput = target.elements.review;
 
     // call the createBook function above
     mutate(

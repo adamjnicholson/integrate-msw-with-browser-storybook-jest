@@ -1,5 +1,10 @@
 import { factory, primaryKey } from "@mswjs/data";
-import { ModelValueType, PrimaryKeyType } from "@mswjs/data/lib/glossary";
+import {
+  Entity,
+  ModelValueType,
+  PrimaryKeyType,
+  PRIMARY_KEY,
+} from "@mswjs/data/lib/glossary";
 import { PrimaryKey } from "@mswjs/data/lib/primaryKey";
 import faker from "faker";
 import { Book } from "../types";
@@ -38,4 +43,27 @@ export function seedDb() {
   for (let i = 0; i < 5; i++) {
     db.book.create();
   }
+}
+
+export function getModelInstance<
+  Model extends keyof Dictionary,
+  PrimaryKeyName extends keyof Entity<Dictionary, "book">
+>(model: Model, primaryKeyName: PrimaryKeyName) {
+  const newModel = db[model].create();
+
+  if (newModel[PRIMARY_KEY] !== primaryKeyName) {
+    throw new Error(
+      "the primary key supplied is not the correct primary key for the request model instance"
+    );
+  }
+
+  db[model].delete({
+    where: {
+      [primaryKeyName]: {
+        equals: newModel[primaryKeyName],
+      },
+    },
+  });
+
+  return newModel;
 }
