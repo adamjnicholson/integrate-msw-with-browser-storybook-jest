@@ -36,7 +36,7 @@ export const db = factory<Dictionary>({
         max: 5,
       }),
     name: () => `The ${faker.company.bsAdjective()} ${faker.animal.type()}`,
-    review: () => faker.lorem.sentence(),
+    review: () => faker.lorem.sentences(4),
   },
 });
 

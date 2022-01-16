@@ -3,7 +3,7 @@ import React from "react";
 import { Link, LinkProps } from "react-router-dom";
 
 const BUTTON_STYLES =
-  "bg-purple-500 text-white py-2 px-4 rounded-md transition-colors hover:bg-purple-700";
+  "inline-flex items-center bg-purple-500 text-white py-2 px-4 rounded-md transition-colors hover:bg-purple-700";
 
 type ButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

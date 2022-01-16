@@ -29,14 +29,13 @@ it("displays links to all books", async () => {
   await waitForElementToBeRemoved(() => screen.queryByText("loading"));
 
   screen.getByRole("heading", { name: book?.name });
-  screen.getByRole("heading", { name: /rating/i });
-  screen.getByText(book?.rating ?? "");
+  expect(screen.getAllByTitle(/star/i)).toHaveLength(book?.rating ?? 0);
   screen.getByRole("heading", { name: /review/i });
   screen.getByText(book?.review ?? "");
 
   userEvent.click(
     screen.getByRole("link", {
-      name: /<- back/i,
+      name: /back/i,
     })
   );
 

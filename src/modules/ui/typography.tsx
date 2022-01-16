@@ -7,14 +7,16 @@ type HeadingProps = {
 const HEADING_STYLES_MAP: Partial<Record<HeadingProps["as"], string>> = {
   h1: "font-bold text-4xl text-gray-900 pb-8",
   h2: "font-bold text-2xl text-gray-900 pb-4",
+  h3: "font-bold text-xl text-gray-900 pb-2",
 };
 
 export function Heading({
   as,
+  className = "",
   ...props
 }: React.PropsWithChildren<HeadingProps>) {
   return React.createElement(as, {
     ...props,
-    className: `${HEADING_STYLES_MAP[as]} ${props.className}`,
+    className: `${HEADING_STYLES_MAP[as]} ${className}`,
   });
 }

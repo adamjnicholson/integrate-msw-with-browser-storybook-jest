@@ -18,7 +18,7 @@ export function Main({ className = "", ...props }: HTMLElementProps) {
   return (
     <main
       {...props}
-      className={`bg-gray-50 p-8 flex flex-col min-h-screen ${className}`}
+      className={`bg-gray-50 py-8 px-4 flex flex-col min-h-screen ${className}`}
     />
   );
 }

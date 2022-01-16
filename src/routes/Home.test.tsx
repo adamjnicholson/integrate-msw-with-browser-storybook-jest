@@ -28,9 +28,9 @@ it("displays links to all books", async () => {
   await waitForElementToBeRemoved(() => screen.queryByText("loading"));
 
   const firstBookLink = screen.getByRole("link", {
-    name: `${firstBook.name} ->`,
+    name: `${firstBook.name} right arrow`,
   });
-  screen.getByRole("link", { name: `${lastBook.name} ->` });
+  screen.getByRole("link", { name: `${lastBook.name} right arrow` });
 
   userEvent.click(firstBookLink);
 

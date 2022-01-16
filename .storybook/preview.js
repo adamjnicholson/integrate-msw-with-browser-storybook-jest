@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
 
 import { seedDb } from "../src/mocks/db";
+import { Main, Section } from "../src/modules/ui";
 
 import "../src/index.css";
 
